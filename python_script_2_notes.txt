@@ -1,0 +1,18 @@
+python script 2
+show fdb
+show '[vlan name]'
+show fdb port [port num]
+# spits out mac addresses
+# extract OUI from mac addresses
+# OUI: first 9 chars of MAC address
+# wireshark oui lookup tool
+
+sho fdb | include [OUI]
+exclude uplink ports
+
+user input:
+OUI
+4 or more uplink ports
+tagged/untagged
+
+configure ['Vlan name'] add ports [non-uplink ports] [tag status]
