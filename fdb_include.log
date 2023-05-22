@@ -1,0 +1,5 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2023.05.22 12:54:46 =~=~=~=~=~=~=~=~=~=~=~=
+Slot-1 Stack.2 # sho fdb | include d8:c7:c8
+
+d8:c7:c8:c4:45:7d                          Default(0001) 0023  d m            1:33
+Slot-1 Stack.3 # quit

@@ -1,25 +1,0 @@
-=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2023.05.22 12:54:46 =~=~=~=~=~=~=~=~=~=~=~=
-cat /[KSlot-1 Stack.1 # cat /usr/local/e[KSlot-1 Stack.1 # cat /usr/local/ext/f[KSlot-1 Stack.1 # cat /usr/local/ext/f
-  <filename>      File name
-    fdb_output_bk.txt  file_test.py
-[KSlot-1 Stack.1 # cat /usr/local/ext/fd[KSlot-1 Stack.1 # cat /usr/local/ext/fdb_output_bk.txt [J
-MAC                                      VLAN Name( Tag)  Age  Flags          Port / Virtual Port List
-------------------------------------------------------------------------------------------------------
-00:10:49:06:da:69                          Default(0001) 0009  d m            1:40
-d8:c7:c8:c4:45:7d                          Default(0001) 0043  d m            1:33
-
-Flags : d - Dynamic, s - Static, p - Permanent, n - NetLogin, m - MAC, i - IP,
-        x - IPX, l - lockdown MAC, L - lockdown-timeout MAC, M- Mirror, B - Egress Blackhole,
-        b - Ingress Blackhole, v - MAC-Based VLAN, P - Private VLAN, T - VLAN translation,
-        D - drop packet, h - Hardware Aging (Age=0), o - IEEE 802.1ah Backbone MAC,
-        S - Software Controlled Deletion, r - MSRP,
-        X - VXLAN, E - EVPN
-
-Total: 2 Static: 0  Perm: 0  Dyn: 2  Dropped: 0  Locked: 0  Locked with Timeout: 0
-FDB Aging time: 300
-Slot-1 Stack.2 # sho fdb | include d8:c7:c8
-d8:c7:c8:c4:45:7d                          Default(0001) 0023  d m            1:33
-Slot-1 Stack.3 # quit
-
-System is in evaluation for 30 day(s) and this will expire in 16 day(s) (Thu Jun  8 19:28:37 2023)
-login: 
