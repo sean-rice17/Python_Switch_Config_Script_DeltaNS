@@ -13,6 +13,7 @@ exclude uplink ports
 user input:
 OUI
 4 or more uplink ports
+# uplink ports MUST NOT be configured, or else things BREAK
 tagged/untagged
 
 configure ['Vlan name'] add ports [non-uplink ports] [tag status]
