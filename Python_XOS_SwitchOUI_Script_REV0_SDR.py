@@ -3,12 +3,22 @@
 import re
 import exsh
 
+# Credit: 
+#
+def exosCmd(cmd):
+        # print cmd
+        result = exsh.clicmd(cmd, True)
+        # print(result)
+        return result
+#
+
 # build regex patterns to use later
 # OUI pattern
 pattern1 = "((\w+:){3})"
 
 # input stream from 'sho fdb' command
-show_fdb = open("show_fdb.log", 'r')
+# show_fdb = open("show_fdb.log", 'r')
+show_fdb = exosCmd('sho fdb')
 #create file to write device data to from showfdb
 fdb_file = open("fdb_file.txt", 'w')
 
