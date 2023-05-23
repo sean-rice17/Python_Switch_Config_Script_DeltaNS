@@ -49,3 +49,8 @@ if cnt == 0:
     /usr/local/ext
         USB Mount Point
         Contains the files of any inserted FAT/FAT32 formatted USB
+
+Filter all devices by OUI, excluding all uplink ports
+loop through all devices and configure them automatically
+ask the user to run again with new OUI, vlan, and uplink ports
+repeat until finished
