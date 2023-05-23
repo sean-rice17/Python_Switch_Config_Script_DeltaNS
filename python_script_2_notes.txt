@@ -17,3 +17,22 @@ OUI
 tagged/untagged
 
 configure ['Vlan name'] add ports [non-uplink ports] [tag status]
+
+# to call a EXOS command from python:
+import exsh
+exsh.clicmd('[command]', [True|False])
+
+for line in exsh.clicmd('show fdb', True).splitlines():
+    tokens = line.split()
+    if len(tokens) == 0:
+        continue
+    if tokens[0][0].isdigit():
+        oui = tokens[0].lower()[:8]
+        if oui in ouiDesc:
+            print ouiDesc[oui],'device with MAC address',tokens[0],'on port',tokens[-1]
+        else:
+            print 'Unknown device with MAC address',tokens[0], 'on port', tokens[-1]
+        cnt += 1
+print ""
+if cnt == 0:
+    print 'No FDB entries found\n'
