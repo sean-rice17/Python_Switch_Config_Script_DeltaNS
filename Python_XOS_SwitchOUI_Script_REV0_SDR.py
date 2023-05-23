@@ -27,10 +27,10 @@ deviceListInitial = deviceDataFile.readlines()
 i = 0
 j = 0
 k = 0
-deviceList2Darr = [[0]*2]*2
+deviceList2Darr = []
 while i < len(deviceListInitial):
     currentDevice = deviceListInitial[i].split()
-    deviceList2Darr[j] = currentDevice
+    deviceList2Darr.append(currentDevice)
     i += 1
     j += 1
 j = 0
@@ -49,7 +49,7 @@ j = 0
 while i < len(deviceList2Darr):
     if OUI not in deviceList2Darr[i][0]:
         deviceList2Darr.pop(i)
-    i =+ 1
+    i += 1
 
 i = 0
 while i < len(deviceList2Darr):
@@ -65,10 +65,14 @@ while userInput != 'q':
     uplinkPorts.append(userInput)
 uplinkPorts.pop()
 
-#logic for removing undesirable ports from list
+#logic for removing uplink ports from list
 x = 0
 while x < len(deviceList2Darr):
     currentPort = deviceList2Darr[x][-1] 
     if currentPort in uplinkPorts:
         poppedItem = deviceList2Darr.pop(x)
-        print(poppedItem)
+    x+=1
+i = 0
+while i < len(deviceList2Darr):
+    print(deviceList2Darr[i])
+    i+=1
