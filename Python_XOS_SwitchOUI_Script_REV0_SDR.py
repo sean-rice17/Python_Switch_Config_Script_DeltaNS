@@ -9,7 +9,7 @@ pattern1 = "((\w+:){3})"
 # input stream from 'sho fdb' command
 show_fdb = open("show_fdb.log", 'r')
 
-fdb_file = open("fdb_file", 'w')
+fdb_file = open("fdb_file.txt", 'w')
 
 # find OUIs
 for line in show_fdb:
