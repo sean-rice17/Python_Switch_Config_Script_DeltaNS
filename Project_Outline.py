@@ -1,6 +1,6 @@
 """ Outline for project
-1. sho fdb and dispaly results to user
-  write results to a file
+DONE - 1. sho fdb and dispaly results to user
+DONE -  write results to a file
 2. prompt user for OUI and filter results by OUI
   display filtered results to user from file
 3. prompt user for uplink ports (up to 10)
