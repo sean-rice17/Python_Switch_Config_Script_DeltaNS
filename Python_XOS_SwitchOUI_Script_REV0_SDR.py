@@ -1,2 +1,3 @@
 # version 0
-pass
+
+substring1 = "((\w+:){2}(\w+))"
