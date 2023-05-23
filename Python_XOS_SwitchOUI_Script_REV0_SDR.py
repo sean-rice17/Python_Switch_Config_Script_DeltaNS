@@ -76,3 +76,12 @@ i = 0
 while i < len(deviceList2Darr):
     print(deviceList2Darr[i])
     i+=1
+
+print("\nEnter Vlan name to begin configuration process.\n")
+vlanName = input("Vlan Name: ")
+print("\nEnter port you wish to add\n")
+portNum = input("Port: ")
+print("\nEnter status of tag (tagged or untagged)\n")
+tagStatus = input("Status: ")
+configStr = "configure " + vlanName + " add ports " + portNum + " " + tagStatus
+print(configStr)
