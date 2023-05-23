@@ -36,3 +36,16 @@ for line in exsh.clicmd('show fdb', True).splitlines():
 print ""
 if cnt == 0:
     print 'No FDB entries found\n'
+    
+
+    There are 3 file locations available to users:
+
+    /usr/local/cfg
+        Default Working Directory
+        Configuration and policy files are generally stored here
+    /usr/local/tmp
+        Directory for temporary or debug files
+        This directory's contents persists through reboots, but system generated files may be overwritten or altered automatically
+    /usr/local/ext
+        USB Mount Point
+        Contains the files of any inserted FAT/FAT32 formatted USB
