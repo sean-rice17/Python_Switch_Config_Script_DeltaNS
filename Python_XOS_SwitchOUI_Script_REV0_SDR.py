@@ -8,7 +8,7 @@ import exsh
 def exosCmd(cmd):
         # print cmd
         result = exsh.clicmd(cmd, True)
-        # print(result)
+        print(result)
         return result
 #
 
@@ -17,7 +17,7 @@ def exosCmd(cmd):
 pattern1 = "((\w+:){3})"
 
 # input stream from 'sho fdb' command
-# show_fdb = open("show_fdb.log", 'r')
+show_fdb = open("show_fdb.log", 'r')
 show_fdb = exosCmd('sho fdb')
 #create file to write device data to from showfdb
 fdb_file = open("fdb_file.txt", 'w')
@@ -54,7 +54,9 @@ while j < len(deviceList2Darr):
 
 #prompt user for OUI and delete all items from list that do not contain that OUI
 
-OUI = str(input("Enter an OUI: \n"))
+# OUI = str(input("Enter an OUI: \n"))
+print("Enter an OUI:")
+OUI = raw_input()
 i = 0
 j = 0
 while i < len(deviceList2Darr):
@@ -72,7 +74,7 @@ userInput = ""
 uplinkPorts = []
 print("Enter any number of uplink ports. Enter q to finish entering ports. ")
 while userInput != 'q':
-    userInput = str(input("\n"))
+    userInput = str(raw_input("\n"))
     uplinkPorts.append(userInput)
 uplinkPorts.pop()
 
@@ -93,15 +95,15 @@ while i < len(deviceList2Darr):
 flag = True
 while flag == True:
     print("\nEnter Vlan name to begin configuration process.\n")
-    vlanName = input("Vlan Name: ")
+    vlanName = raw_input("Vlan Name: ")
     print("\nEnter port you wish to add\n")
-    portNum = input("Port: ")
+    portNum = raw_input("Port: ")
     print("\nEnter status of tag (tagged or untagged)\n")
-    tagStatus = input("Status: ")
+    tagStatus = raw_input("Status: ")
     configStr = "configure " + vlanName + " add ports " + portNum + " " + tagStatus
     vlanPortList = exosCmd(configStr)
     print(configStr)
     print("Would you like to configure another port?")
-    moreConfigs = input("(y/n)")
+    moreConfigs = raw_input("(y/n)")
     if moreConfigs == 'n':
         flag = False
