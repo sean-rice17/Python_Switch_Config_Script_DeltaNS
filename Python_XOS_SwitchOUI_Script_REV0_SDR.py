@@ -44,14 +44,16 @@ while j < len(deviceList2Darr):
 #prompt user for OUI and delete all items from list that do not contain that OUI
 
 OUI = str(input("Enter an OUI: \n"))
-print (len(deviceList2Darr))
-"""
-for i in range(len(deviceList2Darr)):
+i = 0
+j = 0
+while i < len(deviceList2Darr):
     if OUI not in deviceList2Darr[i][0]:
         deviceList2Darr.pop(i)
+    i =+ 1
 
-for i in range(len(deviceList2Darr)):
+i = 0
+while i < len(deviceList2Darr):
     print(deviceList2Darr[i])
+    i += 1
 
-"""
 
