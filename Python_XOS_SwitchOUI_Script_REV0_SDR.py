@@ -56,15 +56,19 @@ while i < len(deviceList2Darr):
     print(deviceList2Darr[i])
     i += 1
 
-
+#logic for creating list of undesirable ports
 userInput = ""
-
 uplinkPorts = []
-
-print("Enter any number of uplink ports:")
+print("Enter any number of uplink ports. Enter q to finish entering ports. ")
 while userInput != 'q':
     userInput = str(input("\n"))
     uplinkPorts.append(userInput)
 uplinkPorts.pop()
 
-print(uplinkPorts)
+#logic for removing undesirable ports from list
+x = 0
+while x < len(deviceList2Darr):
+    currentPort = deviceList2Darr[x][-1] 
+    if currentPort in uplinkPorts:
+        poppedItem = deviceList2Darr.pop(x)
+        print(poppedItem)
