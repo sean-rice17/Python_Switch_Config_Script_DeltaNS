@@ -29,20 +29,23 @@ j = 0
 k = 0
 deviceList2Darr = [[0]*2]*2
 while i < len(deviceListInitial):
-    currentDevice = deviceListInitial[j].split()
+    currentDevice = deviceListInitial[i].split()
     deviceList2Darr[j] = currentDevice
-    j += 1
-while i < len(deviceList2Darr):
-    while k < len(deviceList2Darr[i]):
-        print(deviceList2Darr[i][k])
-        k += 1
     i += 1
+    j += 1
+j = 0
+while j < len(deviceList2Darr):
+    while k < len(deviceList2Darr[j]):
+        print(deviceList2Darr[j][k])
+        k += 1
+    j += 1
     k = 0
 
 #prompt user for OUI and delete all items from list that do not contain that OUI
 
-OUI = "d8:c7:c8"
-#str(input("Enter an OUI: \n"))
+OUI = str(input("Enter an OUI: \n"))
+print (len(deviceList2Darr))
+"""
 for i in range(len(deviceList2Darr)):
     if OUI not in deviceList2Darr[i][0]:
         deviceList2Darr.pop(i)
@@ -50,5 +53,5 @@ for i in range(len(deviceList2Darr)):
 for i in range(len(deviceList2Darr)):
     print(deviceList2Darr[i])
 
-
+"""
 
