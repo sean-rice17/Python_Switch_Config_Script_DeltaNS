@@ -4,7 +4,15 @@
 MAC                                      VLAN Name( Tag)  Age  Flags          Port / Virtual Port List
 ------------------------------------------------------------------------------------------------------
 00:10:49:06:da:69                          Default(0001) 0009  d m            1:40
+00:10:49:06:da:68                          Default(0001) 0009  d m            1:55
+00:10:49:06:da:67                          Default(0001) 0009  d m            1:30
+00:10:49:06:da:66                          Default(0001) 0009  d m            1:32
+00:10:49:06:da:65                          Default(0001) 0009  d m            1:34
+00:10:49:06:da:64                          Default(0001) 0009  d m            1:36
 d8:c7:c8:c4:45:7d                          Default(0001) 0043  d m            1:33
+d8:c7:c8:c4:45:7c                          Default(0001) 0043  d m            2:55
+d8:c7:c8:c4:45:77                           MyVlan(0002) 0044  d m            2:66
+00:10:49:d4:e3:22                           MyVlan(0002) 0044  d m            2:32
 
 Flags : d - Dynamic, s - Static, p - Permanent, n - NetLogin, m - MAC, i - IP,
         x - IPX, l - lockdown MAC, L - lockdown-timeout MAC, M- Mirror, B - Egress Blackhole,
