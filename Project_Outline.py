@@ -1,8 +1,8 @@
 """ Outline for project
 DONE - 1. sho fdb and dispaly results to user
 DONE -  write results to a file
-2. prompt user for OUI and filter results by OUI
-  display filtered results to user from file
+DONE - 2. prompt user for OUI and filter results by OUI
+DONE -  display filtered results to user from file
 3. prompt user for uplink ports (up to 10)
   -store user input in array
   display resultx filtered by these ports to user from file
