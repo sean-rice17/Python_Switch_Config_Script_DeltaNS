@@ -57,3 +57,14 @@ while i < len(deviceList2Darr):
     i += 1
 
 
+userInput = ""
+
+uplinkPorts = []
+
+print("Enter any number of uplink ports:")
+while userInput != 'q':
+    userInput = str(input("\n"))
+    uplinkPorts.append(userInput)
+uplinkPorts.pop()
+
+print(uplinkPorts)
