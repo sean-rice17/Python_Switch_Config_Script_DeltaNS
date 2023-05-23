@@ -1,6 +1,7 @@
 # version 0
 
 import re
+import exsh
 
 # build regex patterns to use later
 # OUI pattern
@@ -77,11 +78,20 @@ while i < len(deviceList2Darr):
     print(deviceList2Darr[i])
     i+=1
 
-print("\nEnter Vlan name to begin configuration process.\n")
-vlanName = input("Vlan Name: ")
-print("\nEnter port you wish to add\n")
-portNum = input("Port: ")
-print("\nEnter status of tag (tagged or untagged)\n")
-tagStatus = input("Status: ")
-configStr = "configure " + vlanName + " add ports " + portNum + " " + tagStatus
-print(configStr)
+#logic for sending configuration commands to switch
+
+flag = True
+while flag == True:
+    print("\nEnter Vlan name to begin configuration process.\n")
+    vlanName = input("Vlan Name: ")
+    print("\nEnter port you wish to add\n")
+    portNum = input("Port: ")
+    print("\nEnter status of tag (tagged or untagged)\n")
+    tagStatus = input("Status: ")
+    configStr = "configure " + vlanName + " add ports " + portNum + " " + tagStatus
+    vlanPortList = exosCmd(configStr)
+    print(configStr)
+    print("Would you like to configure another port?")
+    moreConfigs = input("(y/n)")
+    if moreConfigs == 'n':
+        flag = False
