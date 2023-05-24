@@ -1,0 +1,262 @@
+entering driver loop    
+initialize pattern1     
+initialize input streams
+attempting 'for line in show_fdb'
+loop entered
+loop entered
+loop entered
+loop entered
+loop entered
+loop entered
+if match != none
+loop entered
+if match != none
+loop entered
+if match != none
+loop entered
+if match != none
+loop entered
+if match != none
+loop entered
+if match != none
+loop entered
+if match != none
+loop entered
+if match != none
+loop entered
+if match != none
+loop entered
+if match != none
+loop entered
+loop entered
+loop entered
+loop entered
+loop entered
+loop entered
+loop entered
+loop entered
+loop entered
+loop entered
+loop entered
+closing fdb_file
+attempting Create 2d array
+opening device data file
+attempting to enter 'while i < len(devicelistInitial)'
+loop entered
+loop entered
+loop entered
+loop entered
+loop entered
+loop entered
+loop entered
+loop entered
+loop entered
+loop entered
+closing device data file
+
+print contents of 2d array
+entered loop
+--------------------
+
+00:10:49:06:da:69
+Default(0001)
+0009
+d
+m
+1:40
+entered loop
+--------------------
+
+00:10:49:06:da:68
+Default(0001)
+0009
+d
+m
+1:55
+entered loop
+--------------------
+
+00:10:49:06:da:67
+Default(0001)
+0009
+d
+m
+1:30
+entered loop
+--------------------
+
+00:10:49:06:da:66
+Default(0001)
+0009
+d
+m
+1:32
+entered loop
+--------------------
+
+00:10:49:06:da:65
+Default(0001)
+0009
+d
+m
+1:34
+entered loop
+--------------------
+
+00:10:49:06:da:64
+Default(0001)
+0009
+d
+m
+1:36
+entered loop
+--------------------
+
+d8:c7:c8:c4:45:7d
+Default(0001)
+0043
+d
+m
+1:33
+entered loop
+--------------------
+
+d8:c7:c8:c4:45:7c
+Default(0001)
+0043
+d
+m
+2:55
+entered loop
+--------------------
+
+d8:c7:c8:c4:45:77
+MyVlan(0002)
+0044
+d
+m
+2:66
+entered loop
+--------------------
+
+00:10:49:d4:e3:22
+MyVlan(0002)
+0044
+d
+m
+2:32
+--------------------
+
+prompt user for OUI
+Enter an OUI:
+00:10:49
+add entries with matching OUIs to new array
+entered loop
+entered 'if OUI in deviceList2darr'
+entered loop
+entered 'if OUI in deviceList2darr'
+entered loop
+entered 'if OUI in deviceList2darr'
+entered loop
+entered 'if OUI in deviceList2darr'
+entered loop
+entered 'if OUI in deviceList2darr'
+entered loop
+entered 'if OUI in deviceList2darr'
+entered loop
+entered loop
+entered loop
+entered loop
+entered 'if OUI in deviceList2darr'
+display the new array
+entered loop
+['00:10:49:06:da:69', 'Default(0001)', '0009', 'd', 'm', '1:40']
+entered loop
+['00:10:49:06:da:68', 'Default(0001)', '0009', 'd', 'm', '1:55']
+entered loop
+['00:10:49:06:da:67', 'Default(0001)', '0009', 'd', 'm', '1:30']
+entered loop
+['00:10:49:06:da:66', 'Default(0001)', '0009', 'd', 'm', '1:32']
+entered loop
+['00:10:49:06:da:65', 'Default(0001)', '0009', 'd', 'm', '1:34']
+entered loop
+['00:10:49:06:da:64', 'Default(0001)', '0009', 'd', 'm', '1:36']
+entered loop
+['00:10:49:d4:e3:22', 'MyVlan(0002)', '0044', 'd', 'm', '2:32']
+logic for creating list of uplink ports
+Enter the uplink ports which will be excluded from the configuration process. Enter q to finish entering ports.
+
+q
+
+removing uplink ports from the list
+entered loop
+if found == False
+entered loop
+if found == False
+entered loop
+if found == False
+entered loop
+if found == False
+entered loop
+if found == False
+entered loop
+if found == False
+entered loop
+if found == False
+('Final list size is', 7)
+entered loop
+['00:10:49:06:da:69', 'Default(0001)', '0009', 'd', 'm', '1:40']
+entered loop
+['00:10:49:06:da:68', 'Default(0001)', '0009', 'd', 'm', '1:55']
+entered loop
+['00:10:49:06:da:67', 'Default(0001)', '0009', 'd', 'm', '1:30']
+entered loop
+['00:10:49:06:da:66', 'Default(0001)', '0009', 'd', 'm', '1:32']
+entered loop
+['00:10:49:06:da:65', 'Default(0001)', '0009', 'd', 'm', '1:34']
+entered loop
+['00:10:49:06:da:64', 'Default(0001)', '0009', 'd', 'm', '1:36']
+entered loop
+['00:10:49:d4:e3:22', 'MyVlan(0002)', '0044', 'd', 'm', '2:32']
+
+Enter the name of the vlan you want to assign to these devices.
+
+Vlan Name: sean
+tagged/untagged: untagged
+attempting to config
+Entered loop 1
+Entered loop 1
+Entered loop 1
+Entered loop 1
+Entered loop 1
+Entered loop 1
+Entered loop 1
+Entered loop 2
+Entered loop 2
+Entered loop 2
+Entered loop 2
+Entered loop 2
+Entered loop 2
+Entered loop 2
+Entered loop 3
+configure sean add ports 1:40 untagged
+Entered loop 3
+configure sean add ports 1:55 untagged
+Entered loop 3
+configure sean add ports 1:30 untagged
+Entered loop 3
+configure sean add ports 1:32 untagged
+Entered loop 3
+configure sean add ports 1:34 untagged
+Entered loop 3
+configure sean add ports 1:36 untagged
+Entered loop 3
+configure sean add ports 2:32 untagged
+---------------
+------DONE-----
+---------------
+Would you like to configure another vlan?
+(y/n)n
+Goodbye
+
+PS C:\Users\Delta Lab\Documents\GitHub\Python_Switch_Config_Script_DeltaNS> 
