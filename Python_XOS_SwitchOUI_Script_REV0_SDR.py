@@ -1,14 +1,22 @@
-# version 0
+# version 1
 
 import re
+<<<<<<< HEAD
 #import exsh
 
 # Credit: 
 """
+=======
+# import exsh
+
+# Credit: Extreme Networks GitHub, located in README
+#
+>>>>>>> dd73a34d28e24b943f5d0e11c01f3bd07cf70439
 def exosCmd(cmd):
         # print cmd
-        result = exsh.clicmd(cmd, True)
-        # print(result)
+        # result = exsh.clicmd(cmd, True)
+        result = cmd
+        print result
         return result
 #
 
@@ -19,7 +27,11 @@ pattern1 = "((\w+:){3})"
 
 # input stream from 'sho fdb' command
 show_fdb = open("show_fdb.log", 'r')
+<<<<<<< HEAD
 #show_fdb = exosCmd('sho fdb')
+=======
+# show_fdb = exosCmd('sho fdb')
+>>>>>>> dd73a34d28e24b943f5d0e11c01f3bd07cf70439
 #create file to write device data to from showfdb
 fdb_file = open("fdb_file.txt", 'w')
 
@@ -27,7 +39,7 @@ fdb_file = open("fdb_file.txt", 'w')
 for line in show_fdb:
     match = re.search(pattern1, line)
     if match != None:
-        print(line)
+        # print line
         fdb_file.write(line)
 
 fdb_file.close()
@@ -46,63 +58,104 @@ while i < len(deviceListInitial):
     i += 1
     j += 1
 j = 0
+
+print ""
+
+# print contents of 2d array
 while j < len(deviceList2Darr):
+    deviceBufferString = "--------------------"
+    print deviceBufferString
+    print ""
     while k < len(deviceList2Darr[j]):
-        print(deviceList2Darr[j][k])
+        print deviceList2Darr[j][k]
         k += 1
     j += 1
     k = 0
 
-#prompt user for OUI and delete all items from list that do not contain that OUI
+print deviceBufferString
+print ""
 
-OUI = str(input("Enter an OUI: \n"))
-i = 0
-j = 0
-while i < len(deviceList2Darr):
-    if OUI not in deviceList2Darr[i][0]:
-        deviceList2Darr.pop(i)
-    i += 1
+#prompt user for OUI
 
-i = 0
-while i < len(deviceList2Darr):
-    print(deviceList2Darr[i])
+# OUI = str(raw_input("Enter an OUI: \n"))
+OUI = "00:10:49"
+
+# add entries with matching OUIs to new array
+deviceList2darr_filtered = []
+for i in range(len(deviceList2Darr)):
+    if OUI in deviceList2Darr[i][0]:
+        deviceList2darr_filtered.append(deviceList2Darr[i])
     i += 1
+# display the new array
+for item in deviceList2darr_filtered:
+    print item
 
 #logic for creating list of undesirable ports
 userInput = ""
+uplinkPorts = ["1:40", "2:32"]
+print "Number of uplink ports:", len(uplinkPorts)
+'''
 uplinkPorts = []
-print("Enter any number of uplink ports. Enter q to finish entering ports. ")
+print("Enter the uplink ports which will be excluded from the configuration process. Enter q to finish entering ports.")
 while userInput != 'q':
-    userInput = str(input("\n"))
+    userInput = str(raw_input("\n"))
     uplinkPorts.append(userInput)
 uplinkPorts.pop()
+print ""
+'''
 
 #logic for removing uplink ports from list
-x = 0
-while x < len(deviceList2Darr):
-    currentPort = deviceList2Darr[x][-1] 
-    if currentPort in uplinkPorts:
-        poppedItem = deviceList2Darr.pop(x)
-    x+=1
-i = 0
-while i < len(deviceList2Darr):
-    print(deviceList2Darr[i])
-    i+=1
+
+# FIX: filtering devices that have uplink ports does not work if the list "uplinkPorts" has more than 1 element
+
+deviceList2darr_final = []
+found = False
+for i in range(len(deviceList2darr_filtered)):
+    currentPort = deviceList2darr_filtered[i][-1]
+    for j in range(len(uplinkPorts)):
+        if currentPort == uplinkPorts[j]:
+            found = True
+            break
+    
+    print found
+    if found == True:
+        found == False
+    # only add items to the list if they do not match any uplink ports
+    else:
+        deviceList2darr_final.append(deviceList2darr_filtered[i])
+
+# print the completely filtered device list
+for i in range(len(deviceList2darr_final)):
+    print deviceList2darr_final[i]
+
+print "Check TODO comment in script."
+exit()
 
 #logic for sending configuration commands to switch
 
 flag = True
 while flag == True:
-    print("\nEnter Vlan name to begin configuration process.\n")
-    vlanName = input("Vlan Name: ")
-    print("\nEnter port you wish to add\n")
-    portNum = input("Port: ")
-    print("\nEnter status of tag (tagged or untagged)\n")
-    tagStatus = input("Status: ")
+    print("\nEnter the name of the vlan you want to assign to these devices.\n")
+    vlanName = raw_input("Vlan Name: ")
+    # TODO: loop for each item in the list
+    
+    #
+
+    # TODO: do all untagged or tagged items, depending on user input
+    
+    #
+
     configStr = "configure " + vlanName + " add ports " + portNum + " " + tagStatus
+<<<<<<< HEAD
     #vlanPortList = exosCmd(configStr)
     print(configStr)
     print("Would you like to configure another port?")
     moreConfigs = input("(y/n)")
+=======
+    # vlanPortList = exosCmd(configStr)
+    print configStr
+    print("Would you like to configure again?")
+    moreConfigs = raw_input("(y/n)")
+>>>>>>> dd73a34d28e24b943f5d0e11c01f3bd07cf70439
     if moreConfigs == 'n':
         flag = False
