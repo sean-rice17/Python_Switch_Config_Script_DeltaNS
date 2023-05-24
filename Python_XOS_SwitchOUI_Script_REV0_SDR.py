@@ -1,17 +1,10 @@
 # version 1
 
 import re
-<<<<<<< HEAD
-#import exsh
-
-# Credit: 
-"""
-=======
 # import exsh
 
 # Credit: Extreme Networks GitHub, located in README
 #
->>>>>>> dd73a34d28e24b943f5d0e11c01f3bd07cf70439
 def exosCmd(cmd):
         # print cmd
         # result = exsh.clicmd(cmd, True)
@@ -22,16 +15,12 @@ def exosCmd(cmd):
 
 # build regex patterns to use later
 # OUI pattern
-"""
+
 pattern1 = "((\w+:){3})"
 
 # input stream from 'sho fdb' command
 show_fdb = open("show_fdb.log", 'r')
-<<<<<<< HEAD
-#show_fdb = exosCmd('sho fdb')
-=======
 # show_fdb = exosCmd('sho fdb')
->>>>>>> dd73a34d28e24b943f5d0e11c01f3bd07cf70439
 #create file to write device data to from showfdb
 fdb_file = open("fdb_file.txt", 'w')
 
@@ -145,16 +134,9 @@ while flag == True:
     #
 
     configStr = "configure " + vlanName + " add ports " + portNum + " " + tagStatus
-<<<<<<< HEAD
-    #vlanPortList = exosCmd(configStr)
-    print(configStr)
-    print("Would you like to configure another port?")
-    moreConfigs = input("(y/n)")
-=======
     # vlanPortList = exosCmd(configStr)
     print configStr
     print("Would you like to configure again?")
     moreConfigs = raw_input("(y/n)")
->>>>>>> dd73a34d28e24b943f5d0e11c01f3bd07cf70439
     if moreConfigs == 'n':
         flag = False
