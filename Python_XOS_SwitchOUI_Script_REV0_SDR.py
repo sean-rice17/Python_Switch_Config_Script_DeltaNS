@@ -50,9 +50,10 @@ def configSwitchVlans():
 
     print ""
 
+    deviceBufferString = "--------------------"
+
     # print contents of 2d array
-    while j < len(deviceList2Darr):
-        deviceBufferString = "--------------------"
+    while j < len(deviceList2Darr):    
         print deviceBufferString
         print ""
         while k < len(deviceList2Darr[j]):
