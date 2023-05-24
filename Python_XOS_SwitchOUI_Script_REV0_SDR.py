@@ -1,10 +1,10 @@
 # version 0
 
 import re
-import exsh
+#import exsh
 
 # Credit: 
-#
+"""
 def exosCmd(cmd):
         # print cmd
         result = exsh.clicmd(cmd, True)
@@ -14,11 +14,12 @@ def exosCmd(cmd):
 
 # build regex patterns to use later
 # OUI pattern
+"""
 pattern1 = "((\w+:){3})"
 
 # input stream from 'sho fdb' command
-# show_fdb = open("show_fdb.log", 'r')
-show_fdb = exosCmd('sho fdb')
+show_fdb = open("show_fdb.log", 'r')
+#show_fdb = exosCmd('sho fdb')
 #create file to write device data to from showfdb
 fdb_file = open("fdb_file.txt", 'w')
 
@@ -99,7 +100,7 @@ while flag == True:
     print("\nEnter status of tag (tagged or untagged)\n")
     tagStatus = input("Status: ")
     configStr = "configure " + vlanName + " add ports " + portNum + " " + tagStatus
-    vlanPortList = exosCmd(configStr)
+    #vlanPortList = exosCmd(configStr)
     print(configStr)
     print("Would you like to configure another port?")
     moreConfigs = input("(y/n)")
