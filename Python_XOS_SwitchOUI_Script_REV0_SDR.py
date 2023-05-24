@@ -65,8 +65,8 @@ print ""
 
 #prompt user for OUI
 
-# OUI = str(raw_input("Enter an OUI: \n"))
-OUI = "00:10:49"
+OUI = str(raw_input("Enter an OUI: \n"))
+# OUI = "00:10:49"
 
 # add entries with matching OUIs to new array
 deviceList2darr_filtered = []
@@ -80,9 +80,8 @@ for item in deviceList2darr_filtered:
 
 #logic for creating list of undesirable ports
 userInput = ""
-uplinkPorts = ["1:40", "2:32"]
-print "Number of uplink ports:", len(uplinkPorts)
-'''
+# uplinkPorts = ["1:40", "2:32"]
+
 uplinkPorts = []
 print("Enter the uplink ports which will be excluded from the configuration process. Enter q to finish entering ports.")
 while userInput != 'q':
@@ -90,7 +89,7 @@ while userInput != 'q':
     uplinkPorts.append(userInput)
 uplinkPorts.pop()
 print ""
-'''
+
 
 #logic for removing uplink ports from list
 
@@ -103,21 +102,21 @@ for i in range(len(deviceList2darr_filtered)):
     for j in range(len(uplinkPorts)):
         if currentPort == uplinkPorts[j]:
             found = True
-            break
-    
-    print found
-    if found == True:
-        found == False
+            
+    if found == False:
+        deviceList2darr_final.append(deviceList2darr_filtered[i])
     # only add items to the list if they do not match any uplink ports
     else:
-        deviceList2darr_final.append(deviceList2darr_filtered[i])
+        found = False
+        
 
 # print the completely filtered device list
+# print "Final list size is", len(deviceList2darr_final)
 for i in range(len(deviceList2darr_final)):
+    
     print deviceList2darr_final[i]
 
-print "Check TODO comment in script."
-exit()
+
 
 #logic for sending configuration commands to switch
 
