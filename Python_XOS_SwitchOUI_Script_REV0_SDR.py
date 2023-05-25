@@ -3,9 +3,13 @@
 
 import re
 import exsh
+import exsh
 
 def exosCmd(cmd):
         # print cmd
+        result = exsh.clicmd(cmd, True)
+        # result = cmd
+        print(result)
         result = exsh.clicmd(cmd, True)
         # print(result)
         return result
@@ -177,7 +181,7 @@ def configSwitchVlans():
         print("Entered loop 3")
         portNum = portListFinal[i]
         configStr = "configure " + vlanName + " add ports " + portNum + " " + tagStatus
-        # exosCmd(configStr)
+        exosCmd(configStr)
         print(configStr)
 
     print("---------------")

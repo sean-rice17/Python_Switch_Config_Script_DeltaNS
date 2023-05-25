@@ -1,7 +1,7 @@
 import re
 
 with open('tokenizeme.txt') as inputfile:
-    result = str(' '.join([line.strip() for line in inputfile]))
+    result = str(' '.join([line.strip('\n') for line in inputfile]))
 
 pattern2 = "(\s){1,}"
 
