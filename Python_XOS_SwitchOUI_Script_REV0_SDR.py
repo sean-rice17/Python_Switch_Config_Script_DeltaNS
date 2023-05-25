@@ -2,13 +2,13 @@
 # Credit: Extreme Networks GitHub, located in README
 
 import re
-# import exsh
+import exsh
 
 def exosCmd(cmd):
         # print cmd
-        # result = exsh.clicmd(cmd, True)
-        result = cmd
-        # print(result)
+        result = exsh.clicmd(cmd, True)
+        # result = cmd
+        print(result)
         return result
 
 def configSwitchVlans():
@@ -19,8 +19,8 @@ def configSwitchVlans():
 
     print("initialize input streams")
     # input stream from 'sho fdb' command
-    show_fdb = open("show_fdb.log", 'r')
-    # show_fdb = exosCmd('sho fdb')
+    # show_fdb = open("show_fdb.log", 'r')
+    show_fdb = exosCmd('sho fdb')
     #create file to write device data to from showfdb
     fdb_file = open("fdb_file.txt", 'w')
 
@@ -28,7 +28,7 @@ def configSwitchVlans():
     print("attempting 'for line in show_fdb'")
     found_match = False
     for line in show_fdb:
-        print("loop entered")
+        print(line)
         match = re.search(pattern1, line)
         if match != None:
             print("if match != none")
@@ -174,7 +174,7 @@ def configSwitchVlans():
         print("Entered loop 3")
         portNum = portListFinal[i]
         configStr = "configure " + vlanName + " add ports " + portNum + " " + tagStatus
-        # exosCmd(configStr)
+        exosCmd(configStr)
         print(configStr)
 
     print("---------------")
