@@ -2,12 +2,11 @@
 # Credit: Extreme Networks GitHub, located in README
 
 import re
-# import exsh
+import exsh
 
 def exosCmd(cmd):
         # print cmd
-        # result = exsh.clicmd(cmd, True)
-        result = cmd
+        result = exsh.clicmd(cmd, True)
         # print(result)
         return result
 
@@ -17,23 +16,26 @@ def configSwitchVlans():
     print("initialize pattern1")
     pattern1 = "((\w+:){3})"
 
-    print("initialize input streams")
-    # input stream from 'sho fdb' command
-    show_fdb = open("show_fdb.log", 'r')
-    # show_fdb = exosCmd('sho fdb')
-    #create file to write device data to from showfdb
-    fdb_file = open("fdb_file.txt", 'w')
+    print("initialize input streams") 
+    # sho_fdb = open("show_fdb.log", 'r')
+    show_fdb = exosCmd('show fdb') 
+    #create file to write result of shoFDB to directly
+    fdb_file = open("fdb_file_Initial.txt", 'w')
 
     # use Regex to find Device Data based on OUI pattern match, then write data to file
-    print("attempting 'for line in show_fdb'")
+    print("attempting for line in show_fdb")
     found_match = False
     for line in show_fdb:
-        print("loop entered")
+        fdb_file.write(line)
+    fdb_file.close()
+    formatted_fdb = open("fdb_file_Initial.txt", 'r')
+    macMatches = open("fdb_MatchesOnly.txt", 'w')
+    for line in formatted_fdb:
         match = re.search(pattern1, line)
         if match != None:
             print("if match != none")
             # print line
-            fdb_file.write(line)
+            macMatches.write(line)
             found_match = True
     
     if found_match == True:
@@ -43,14 +45,15 @@ def configSwitchVlans():
         user_continue = str(input("Press Enter to continue.\n"))
     
     print("closing fdb_file")
-    fdb_file.close()
+    formatted_fdb.close()
+    macMatches.close()
 
     # reopen data file for reading, create 2D array where each index corresponds
     # to one device discovered using show fdb
 
     print("attempting Create 2d array")
     print("opening device data file")
-    deviceDataFile = open('fdb_file.txt', 'r')
+    deviceDataFile = open('fdb_MatchesOnly.txt', 'r')
     deviceListInitial = deviceDataFile.readlines()
     i = 0
     j = 0
