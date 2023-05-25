@@ -23,15 +23,17 @@ def configSwitchVlans():
 
     # use Regex to find Device Data based on OUI pattern match, then write data to file
     found_match = False
+    #write initial show FDB result directly to file
     for line in show_fdb:
         fdb_file.write(line)
     fdb_file.close()
+    #Reopen file containing show FDB data and work with this
     formatted_fdb = open("fdb_file_Initial.txt", 'r')
+    #create file that contains only information from matching mac Addresses
     macMatches = open("fdb_MatchesOnly.txt", 'w')
     for line in formatted_fdb:
         match = re.search(pattern1, line)
         if match != None:
-            # print line
             macMatches.write(line)
             found_match = True
     
@@ -44,7 +46,8 @@ def configSwitchVlans():
     formatted_fdb.close()
     macMatches.close()
 
-    # reopen data file for reading, create 2D array where each index corresponds
+    # reopen data file (macMatches) for reading
+    # create 2D array where each index corresponds
     # to one device discovered using show fdb
 
     deviceDataFile = open('fdb_MatchesOnly.txt', 'r')
@@ -125,7 +128,6 @@ def configSwitchVlans():
             
 
     # print the completely filtered device list
-    print("Final list size is", len(deviceListArrFinal))
     for i in range(len(deviceListArrFinal)):
         print(str(deviceListArrFinal[i]))
 
