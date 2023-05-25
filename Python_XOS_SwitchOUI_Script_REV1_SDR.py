@@ -57,7 +57,6 @@ def configSwitchVlans():
     k = 0
     deviceList2Darr = []
     while i < len(deviceListInitial):
-        print("loop entered")
         currentDevice = deviceListInitial[i].split()
         deviceList2Darr.append(currentDevice)
         i += 1
