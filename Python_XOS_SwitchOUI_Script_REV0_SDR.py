@@ -160,35 +160,30 @@ def configSwitchVlans():
 
     #logic for sending configuration commands to switch
     print("\nEnter the name of the vlan you want to assign to these devices.\n")
+    #input Vlan Name
     vlanName = raw_input("Vlan Name: ")
-    # TODO: loop for each item in the list
-    
+    #input tag status
     tagStatus = raw_input("tagged/untagged: ")
 
-    print("attempting to config")
+    #logic for creating a list of all unique port numbers
     portListNoDoubles = []
     portListFinal = []
+    #initial loop to create a 1D list of all port numbers
     for i in range (len(deviceListArrFinal)):
-        print("Entered loop 1")
         portListNoDoubles.append(deviceListArrFinal[i][-1])
     
+    #second loop to create final list of only unique port numbers
     for i in range (len(portListNoDoubles)):
-        print("Entered loop 2")
         if portListNoDoubles[i] not in portListFinal:
             portListFinal.append(portListNoDoubles[i])
 
+    #final loop to send configuration command based on remaining ports
     for i in range(len(portListFinal)):
-        print("Entered loop 3")
         portNum = portListFinal[i]
         configStr = "configure " + vlanName + " add ports " + portNum + " " + tagStatus
         exosCmd(configStr)
-        print(configStr)
+        print(configStr + "-- Config Successful")
 
-    print("---------------")
-    print("------DONE-----")
-    print("---------------")
-
-print("entering driver loop")
 
 #driver loop (main)
 moreConfigs = 'y'
@@ -197,4 +192,4 @@ while (moreConfigs != 'n'):
     print("Would you like to configure another vlan?")
     moreConfigs = raw_input("(y/n)")
 
-print("Goodbye\n")
+print("Vlan Configuration Completed")
