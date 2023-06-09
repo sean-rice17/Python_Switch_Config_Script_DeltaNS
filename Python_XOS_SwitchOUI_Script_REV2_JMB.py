@@ -97,19 +97,23 @@ def configSwitchVlans():
         if OUI in deviceList2Darr[i][0]:
             deviceList2darr_filtered.append(deviceList2Darr[i])
         i += 1
+    
+    #ADD printing of "sho vlan" command -- display vlan names only
+
+    show_Vlans = exosCmd('sho vlan')
+    
     # display the new array
     for item in deviceList2darr_filtered:
         print (item)
         
-#ADD printing of "sho vlan" command -- display vlan names only
 
-    show_Vlans = exosCmd('sho vlan')
     
     #logic for creating list of undesirable ports
     userInput = ""
     # uplinkPorts = ["1:40", "2:32"]
     
     
+    show_Edp = exosCmd('sho edp ports all')
 #ADD error checking for user input
     uplinkPattern = "\d+:\d+\d*"
     uplinkPorts = []
