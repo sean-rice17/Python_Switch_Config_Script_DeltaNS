@@ -159,9 +159,9 @@ def configSwitchVlans():
         
     #input tag status
     tagStatus = ""
-    while tagStatus != "tagged" or "untagged":
+    while "tagged" not in tagStatus:
         tagStatus = raw_input("tagged/untagged: ")
-        if tagStatus != "tagged" or "untagged":
+        if "tagged" not in tagStatus:
             print("Error. Please enter tagged or untagged only.")
 
     #logic for creating a list of all unique port numbers
