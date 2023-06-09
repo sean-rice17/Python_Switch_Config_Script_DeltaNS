@@ -119,6 +119,9 @@ def configSwitchVlans():
         match2 = re.search(uplinkPattern, userInput)
         if match2 != None:
             uplinkPorts.append(userInput)
+    
+        elif userInput == 'q' or 'Q':
+            print("Finished Entering Uplink Ports.")
         else: 
             print("Error: Please Enter uplink ports in the format #:##")
     uplinkPorts.pop()
