@@ -195,7 +195,7 @@ def configSwitchVlans():
 moreConfigs = 'y'
 while (moreConfigs != 'n'):
     configSwitchVlans()
-    print("Would you like to configure another vlan?")
+    print("Would you like to configure another OUI?")
     moreConfigs = raw_input("(y/n)")
 
 print("Vlan Configuration Completed")
