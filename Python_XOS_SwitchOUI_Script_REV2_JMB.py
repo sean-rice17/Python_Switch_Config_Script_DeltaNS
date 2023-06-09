@@ -45,6 +45,7 @@ def configSwitchVlans():
     
     formatted_fdb.close()
     macMatches.close()
+    
 
     # reopen data file (macMatches) for reading
     # create 2D array where each index corresponds
@@ -68,7 +69,9 @@ def configSwitchVlans():
 
     deviceBufferString = "--------------------"
 
+# REMOVE PRINTING OF INDIVIDUAL FDB ENTRIES
     # print contents of 2d array
+    """
     while j < len(deviceList2Darr):
         print (deviceBufferString)
         print ("")
@@ -77,7 +80,9 @@ def configSwitchVlans():
             k += 1
         j += 1
         k = 0
-
+    """ 
+    #Removed Printing
+    
     print(deviceBufferString)
     print("")
 
@@ -95,16 +100,27 @@ def configSwitchVlans():
     # display the new array
     for item in deviceList2darr_filtered:
         print (item)
+        
+#ADD printing of "sho vlan" command -- display vlan names only
 
+    show_Vlans = exosCmd('sho vlan')
+    
     #logic for creating list of undesirable ports
     userInput = ""
     # uplinkPorts = ["1:40", "2:32"]
-
+    
+    
+#ADD error checking for user input
+    uplinkPattern = "\d+:\d+\d*"
     uplinkPorts = []
     print("Enter the uplink ports which will be excluded from the configuration process. Enter q to finish entering ports.")
     while userInput != 'q':
         userInput = str(raw_input("\n"))
-        uplinkPorts.append(userInput)
+        match2 = re.search(uplinkPattern, userInput)
+        if match2 != None:
+            uplinkPorts.append(userInput)
+        else: 
+            print("Error: Please Enter uplink ports in the format #:##")
     uplinkPorts.pop()
     print ("")
 
