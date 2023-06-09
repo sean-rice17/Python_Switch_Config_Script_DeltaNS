@@ -88,7 +88,7 @@ def configSwitchVlans():
 
     #prompt user for OUI
 
-    OUI = str(raw_input("Enter an OUI: \n"))
+    OUI = str(raw_input("Enter an OUI <##:##:##>: \n"))
     # OUI = "00:10:49"
 
     # add entries with matching OUIs to new array
@@ -152,8 +152,17 @@ def configSwitchVlans():
     print("\nEnter the name of the vlan you want to assign to these devices.\n")
     #input Vlan Name
     vlanName = raw_input("Vlan Name: ")
+    if vlanName not in show_Vlans:
+        while vlanName not in show_Vlans:
+            print("Error: vlanName is not one of the available vLans on this Network.\nPlease try Again.")
+            vlanName = raw_input("Vlan Name: ")
+        
     #input tag status
-    tagStatus = raw_input("tagged/untagged: ")
+    tagStatus = ""
+    while tagStatus != "tagged" or "untagged":
+        tagStatus = raw_input("tagged/untagged: ")
+        if tagStatus != "tagged" or "untagged":
+            print("Error. Please enter tagged or untagged only.")
 
     #logic for creating a list of all unique port numbers
     portListNoDoubles = []
