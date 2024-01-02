@@ -113,7 +113,7 @@ def configSwitchVlans():
     # uplinkPorts = ["1:40", "2:32"]
     
     
-    show_Edp = exosCmd('sho edp ports all')
+    show_Edp = exosCmd('show edp ports all')
 #ADD error checking for user input
     uplinkPattern = "\d+:\d+\d*"
     uplinkPorts = []
@@ -128,7 +128,10 @@ def configSwitchVlans():
             print("Finished Entering Uplink Ports.")
         else: 
             print("Error: Please Enter uplink ports in the format #:##")
-    uplinkPorts.pop()
+    try:
+        uplinkPorts.pop()
+    except IndexError as e:
+        print("No uplink ports entered.")
     print ("")
 
 
