@@ -20,7 +20,7 @@ def cycleInlinePower():
     # sho_fdb = open("show_fdb.log", 'r')
     show_fdb = exosCmd('show fdb') 
     #create file to write result of shoFDB to directly
-    fdb_file = open("fdb_file_Initial.txt", 'w')
+    fdb_file = open("/usr/local/cfg/fdb_file_Initial.txt", 'w')
 
     # use Regex to find Device Data based on OUI pattern match, then write data to file
     found_match = False
@@ -29,9 +29,9 @@ def cycleInlinePower():
         fdb_file.write(line)
     fdb_file.close()
     #Reopen file containing show FDB data and work with this
-    formatted_fdb = open("fdb_file_Initial.txt", 'r')
+    formatted_fdb = open("/usr/local/cfg/fdb_file_Initial.txt", 'rw')
     #create file that contains only information from matching mac Addresses
-    macMatches = open("fdb_MatchesOnly.txt", 'w')
+    macMatches = open("/usr/local/cfg/fdb_MatchesOnly.txt", 'w')
     for line in formatted_fdb:
         match = re.search(pattern1, line)
         if match != None:
@@ -52,7 +52,7 @@ def cycleInlinePower():
     # create 2D array where each index corresponds
     # to one device discovered using show fdb
 
-    deviceDataFile = open('fdb_MatchesOnly.txt', 'r')
+    deviceDataFile = open('/usr/local/cfg/fdb_MatchesOnly.txt', 'r')
     deviceListInitial = deviceDataFile.readlines()
     i = 0
     j = 0
