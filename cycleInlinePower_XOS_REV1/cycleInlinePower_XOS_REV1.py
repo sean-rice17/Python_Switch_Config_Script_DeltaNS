@@ -15,7 +15,7 @@ def exosCmd(cmd):
 def cycleInlinePower():
     # build regex patterns to use later
     # OUI pattern
-    pattern1 = "((\w+:){3})"
+    pattern1 = "(\w+:\w+:\w+:)"
 
     # sho_fdb = open("show_fdb.log", 'r')
     show_fdb = exosCmd('show fdb') 
@@ -116,7 +116,10 @@ def cycleInlinePower():
             print("Finished Entering Uplink Ports.")
         else: 
             print("Error: Please Enter uplink ports in the format #:##")
-    uplinkPorts.pop()
+    try:
+        uplinkPorts.pop()
+    except IndexError as e:
+        print("No uplink ports entered.")
     print ("")
 
 
